@@ -496,17 +496,26 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
+              <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                <strong>Terima Kasih</strong> Pesan anda sudah kami terima.
+              </div>
               <div class="subscribe-input">
-                <div class="input-texbox">
-                  <input type="text" name="email" class="form-control" placeholder="Email...">
-                </div>
-                <div class="input-texbox">
-                  <!-- <input type="text" name="pesan" class="form-control" placeholder="Email..." rows="3"> -->
-                  <textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Message..."></textarea>
-                </div>
-                <div class="btn-submit">
-                  <button type="submit" class="btn btn-subcribe">Subcribe</button>
-                </div>
+                <form name="submit-to-google-sheet-dnfebri">
+                  <div class="input-texbox">
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Email..." required>
+                  </div>
+                  <div class="input-texbox">
+                    <!-- <input type="text" name="pesan" class="form-control" placeholder="Email..." rows="3"> -->
+                    <textarea type="text" name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="2" placeholder="Message..."></textarea>
+                  </div>
+                  <div class="btn-submit">
+                    <button type="submit" class="btn btn-subcribe btn-kirim">Submit</button>
+                    <button class="btn btn-subcribe btn-loading d-none" type="button" disabled>
+                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Loading...
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -607,6 +616,36 @@
 
   <!-- myscript file js -->
   <script src="js/myscript.js"></script>
+
+  <!-- Script Google spreadsheets contact form -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3ELj7gusJc8miwZAoIoXhtQvKd9l6irMB-FeEN46pHERV9d8zsoGS5ZAIWx6e3YTXuw/exec';
+    const form = document.forms['submit-to-google-sheet-dnfebri'];
+    const btnKirim = document.querySelector('.btn-kirim');
+    const btnLoading = document.querySelector('.btn-loading');
+    const myAlert = document.querySelector('.my-alert');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      // ketika tombol kirim diklik
+      // tampil tombol loading, hilang tombol kirim
+      btnLoading.classList.toggle('d-none');
+      btnKirim.classList.toggle('d-none');
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+        // tampil tombol loading, hilang tombol kirim
+          btnLoading.classList.toggle('d-none');
+          btnKirim.classList.toggle('d-none');
+          // tampilkan Alert
+          myAlert.classList.toggle('d-none');
+          // Reset Form
+          form.reset();
+
+          console.log('Success!', response);
+        })
+        .catch(error => console.error('Error!', error.message));
+    });
+  </script>
 
 </body>
 
