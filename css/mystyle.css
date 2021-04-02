@@ -1408,7 +1408,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 .input-texbox{
   padding: 10px 5px;
 }
-.input-texbox input {
+.input-texbox input, textarea {
   width: 100%;
   height: 50px;
   color: var(--text-color);
@@ -1421,6 +1421,21 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .input-texbox input::placeholder{
+  color: var(--text-color-secondary);
+}
+.input-texbox textarea {
+  width: 100%;
+  height: 100px;
+  color: var(--text-color);
+  border-radius: 5px;
+  border: 2px solid #ffffffb4;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  color: black;
+}
+
+.input-texbox textarea::placeholder{
   color: var(--text-color-secondary);
 }
 
