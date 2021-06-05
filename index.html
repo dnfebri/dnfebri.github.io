@@ -174,7 +174,9 @@
                 <h4 class="title-text text-uppercase">web developer</h4>
                 <div class="site-button">
                   <div class="flex-wrap">
-                    <button type="button" class="btn btn-hire">Hire me</button>
+                    <a href="#about" class="js-scroll-trigger">
+                      <button type="button" class="btn btn-hire">Hire me</button>
+                    </a>
                     <a href="#about" class="js-scroll-trigger">
                       <button type="button" class="btn  btn-cv ">CV</button>
                     </a>
@@ -430,19 +432,22 @@
               <img src="img/skill/html.png" alt="HTML5" style="width:80px;">
             </div>
             <div class="col mt-3">
-              <img src="img/skill/javascript.png" alt="Javascript" style="width:80px;">
+              <img src="img/skill/css.png" alt="CSS" style="width:80px;">
             </div>
             <div class="col mt-3">
-              <img src="img/skill/css.png" alt="CSS" style="width:80px;">
+              <img src="img/skill/javascript.png" alt="Javascript" style="width:80px;">
             </div>
             <div class="col mt-3">
               <img src="img/skill/php.png" alt="PHP" style="width:80px;">
             </div>
             <div class="col mt-3">
-              <img src="img/skill/wordpress.png" alt="Wordpress" style="width:80px;">
+              <img src="img/skill/codeigniter.png" alt="Codeigniter" style="width:80px;">
             </div>
             <div class="col mt-3">
-              <img src="img/skill/codeigniter.png" alt="Codeigniter" style="width:80px;">
+              <img src="img/skill/Laravel.png" alt="Laravel" style="width:80px;">
+            </div>
+            <div class="col mt-3">
+              <img src="img/skill/wordpress.png" alt="Wordpress" style="width:80px;">
             </div>
           </div>
 
@@ -452,6 +457,12 @@
           <div class="row align-items-center mt-3" data-aos="fade-up" data-aos-duration="2000">
             <div class="col mt-3">
               <img src="img/skill/vs_code.png" alt="Visual Studio Code" style="width:80px;">
+            </div>
+            <div class="col mt-3">
+              <img src="img/skill/mysql.png" alt="MySQL" style="width:80px;">
+            </div>
+            <div class="col mt-3">
+              <img src="img/skill/postgresql.png" alt="PostgreSql" style="width:80px;">
             </div>
             <div class="col mt-3">
               <img src="img/skill/Corel_Draw.png" alt="Corel Draw" style="width:80px;">
@@ -624,7 +635,8 @@
 
   <!-- Script Google spreadsheets contact form -->
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw3ELj7gusJc8miwZAoIoXhtQvKd9l6irMB-FeEN46pHERV9d8zsoGS5ZAIWx6e3YTXuw/exec';
+    const scriptURL =
+      'https://script.google.com/macros/s/AKfycbw3ELj7gusJc8miwZAoIoXhtQvKd9l6irMB-FeEN46pHERV9d8zsoGS5ZAIWx6e3YTXuw/exec';
     const form = document.forms['submit-to-google-sheet-dnfebri'];
     const btnKirim = document.querySelector('.btn-kirim');
     const btnLoading = document.querySelector('.btn-loading');
@@ -636,7 +648,10 @@
       // tampil tombol loading, hilang tombol kirim
       btnLoading.classList.toggle('d-none');
       btnKirim.classList.toggle('d-none');
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      fetch(scriptURL, {
+          method: 'POST',
+          body: new FormData(form)
+        })
         .then(response => {
           // tampil tombol loading, hilang tombol kirim
           btnLoading.classList.toggle('d-none');
