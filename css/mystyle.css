@@ -445,14 +445,14 @@ p {
   font-weight: 400;
 }
 
-.home-section .site-title h3::after {
+/* .home-section .site-title h3::after {
   content: "";
   width: 5vw;
   height: 2px;
   background: black;
   display: inline-block;
   margin-left: 20px;
-}
+} */
 
 .home-section .site-title h1 {
   font-size: 40px;
